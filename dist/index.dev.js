@@ -21,8 +21,8 @@ var router = require('./backend/router');
 var app = express();
 var server = http.createServer(app);
 var io = socketio(server);
-app.use(cors());
-app.use(router);
+app.use(cors()); // app.use(router);
+
 io.on('connect', function (socket) {
   socket.on('join', function (_ref, callback) {
     var name = _ref.name,
